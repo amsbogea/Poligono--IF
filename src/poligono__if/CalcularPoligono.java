@@ -14,8 +14,17 @@ public class CalcularPoligono {
 		System.out.println("Digite o número de lados do polígono: ");
 		numLados = in.nextInt();
 		
+		if (numLados < 3 ){
+			System.out.println("NÃO É UM POLÍGONO.");
+			System.exit(0); // Encerra o programa aqui
+		} else if (numLados > 5){
+			System.out.println("POLÍGONO NÃO IDENTIFICADO.");
+			System.exit(0); // Encerra o programa aqui
+		}
+		
 		System.out.println("Digite a medida do lado do polígono em 'cm': ");
 		medidaLado = in.nextDouble();
+		
 		
 		if (numLados == 3) {
             area = (medidaLado * medidaLado * Math.sqrt(3)) / 4; // Área do triângulo equilátero
@@ -26,9 +35,7 @@ public class CalcularPoligono {
 		}else if (numLados == 5) {
 	        area = (1.720477 * medidaLado * medidaLado); // Área do pentágono
 			System.out.printf("Este polígono é um PENTÁGONO. Área: %.2f cm²", area);
-	} else {
-		System.out.println("Este polígono é INVÁLIDO, valores válidos são: 1, 2 ou 3. ");
-	}
+	} 
 		in.close();
 	}
 }
